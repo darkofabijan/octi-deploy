@@ -1,5 +1,5 @@
 version: v1.0
-name: Initial Pipeline
+name: Build & Test
 agent:
   machine:
     type: e1-standard-2
@@ -8,6 +8,25 @@ blocks:
   - name: 'Block #1'
     task:
       jobs:
+        - name: Lint
+          commands:
+            - checkout
+            - echo "lint"
+        - name: Build
+          commands:
+            - checkout
+            - echo "If you need to build something this is the place to do it"
+  - name: Unit tests
+    task:
+      jobs:
         - name: 'Job #1'
           commands:
             - checkout
+            - echo "run unit tests"
+          parallelism: 2
+  - name: Integration / Acceptance Tests
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+          parallelism: 3
