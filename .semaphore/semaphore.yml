@@ -30,3 +30,12 @@ blocks:
         - name: 'Job #1'
           commands: []
           parallelism: 3
+promotions:
+  - name: 'DevEnv: Mercury'
+    pipeline_file: devenv-mercury.yml
+  - name: 'DevEnv: Venus'
+    pipeline_file: devenv-venus.yml
+  - name: 'DevEnv: Earth'
+    pipeline_file: devenv-earth.yml
+  - name: Staging
+    pipeline_file: staging.yml
