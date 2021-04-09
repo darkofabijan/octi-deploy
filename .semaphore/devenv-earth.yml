@@ -1,5 +1,5 @@
 version: v1.0
-name: Earth
+name: Deploy
 agent:
   machine:
     type: e1-standard-2
@@ -8,6 +8,6 @@ blocks:
   - name: 'Block #1'
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Deploy
           commands:
             - echo "job 1"
