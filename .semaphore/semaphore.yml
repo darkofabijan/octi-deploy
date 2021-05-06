@@ -22,7 +22,10 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-            - echo "run unit tests"
+            - 'curl https://gist.githubusercontent.com/darkofabijan/2d35969826c3d0d2e13acf498d24c5e9/raw/e10fe1f2d0fafb23ab2f51cb5d761eb74564a52e/run.txt'
+            - touch results.json
+            - artifacts push job results.json
+            - 'false'
           parallelism: 2
   - name: Integration / Acceptance Tests
     task:
